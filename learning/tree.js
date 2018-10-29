@@ -1,25 +1,42 @@
-let folders = ['/home/user/name', '/home/user/age', '/home/school/name', '/home/school/location'];
+let folders = [
+  'home/user/name',
+  'home/user/age',
+  'home/school/name',
+  'home/school/location',
+  'classes',
+  'classes/math',
+  'classes/math/scores'
+];
 
-const root = {};
+const root = new Map();
 
-const addToRoot = item => {
-  root[item] = item;
+const addToRoot = (item, root) => {
+  if (!root.has(item)) {
+    let value = new Map();
+    root.set(item, value);
+  }
+  root = root.get(item);
+  return root;
 };
 
 for (let f of folders) {
-  f = f.substring(1);
+  let current = root;
   for (let dir of f.split('/')) {
-    addToRoot(dir);
+    current = addToRoot(dir, current);
   }
 }
 
-console.log(root);
-/*
-root = {
-    home: [
-        {school: [{name, location}]},
-        {user: [{name, age}]}
-    ]
+// console.log(root);
+
+function printKeys(root, delimiter) {
+  root.forEach((value, key) => {
+    console.log(delimiter + key);
+    if (value.constructor === Map) {
+      printKeys(value, ' ' + delimiter);
+    }
+  });
 }
 
-*/
+printKeys(root, '- ');
+
+console.log(root);
