@@ -1,11 +1,16 @@
 let folders = [
-  'home/user/name',
-  'home/user/age',
-  'home/school/name',
-  'home/school/location',
-  'classes',
-  'classes/math',
-  'classes/math/scores'
+  'account',
+  'account/orders',
+  'account/orders/id',
+  'account/profile',
+  'account/profile/edit',
+  'drugs',
+  'drugs/lipitor',
+  'drugs/lipitor/usage',
+  'drugs/lipitor/warnings',
+  'drugs/xanax',
+  'drugs/xanax/usage',
+  'drugs/xanax/warnings'
 ];
 
 const root = new Map();
