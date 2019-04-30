@@ -108,7 +108,7 @@ It disables features that are confusing or poorly thought out.
 - .pop()
 - .push()
 - .values()
-- .sort((a, b) => a - b))
+- .sort((a, b) => a - b)
 - .concat()
 - .includes()
 - .join()
