@@ -2,6 +2,8 @@
 
 arr.constructor === Array
 
+Array.isArray(arr)
+
 #### Find max or min
 
 Math.max.apply(null, arr)
